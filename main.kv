@@ -1,0 +1,434 @@
+<DrawerItem>
+    active_indicator_color: "#e7e4c0"
+
+    MDNavigationDrawerItemLeadingIcon:
+        icon: root.icon
+        theme_icon_color: "Custom"
+        icon_color: "#4a4939"
+
+    MDNavigationDrawerItemText:
+        text: root.text
+        theme_text_color: "Custom"
+        text_color: "#4a4939"
+
+
+<DrawerLabel>
+    adaptive_height: True
+    padding: "18dp", 0, 0, "12dp"
+
+    MDNavigationDrawerItemLeadingIcon:
+        icon: root.icon
+        theme_icon_color: "Custom"
+        icon_color: "#4a4939"
+        pos_hint: {"center_y": .5}
+
+    MDNavigationDrawerLabel:
+        text: root.text
+        theme_text_color: "Custom"
+        text_color: "#4a4939"
+        pos_hint: {"center_y": .5}
+        padding: "6dp", 0, "16dp", 0
+        theme_line_height: "Custom"
+        line_height: 0
+
+
+MDScreen:
+    md_bg_color: self.theme_cls.backgroundColor
+    hint_button: hint_button
+    city_name: city_name
+    dasboard: dasboard
+    error_code_1: error_code_1
+    error_code_2 : error_code_2
+    city_country: city_country
+    weather: weather
+    weather_hint: weather_hint
+    image_pic: image_pic
+    temp_f: temp_f
+    temp_c: temp_c
+    speed: speed
+    humidity: humidity
+    forecast_container: forecast_container
+    scroll_view: scroll_view
+    pishbini: pishbini
+    error_code_3: error_code_3
+    MDNavigationLayout:
+    
+        MDScreenManager:
+            
+            MDScreen:
+                #    Main Screen  
+                MDLabel:
+                    text: "Weather App"
+                    pos_hint: {"center_x": .57, "top": .96}
+                    padding_x: "18dp"
+                    adaptive_height: True
+                    font_style: "Title"
+                    theme_font_name: "Custom"
+                    font_name: "asset/fonts/COOPBL.ttf"
+                    
+                    role: "large"                
+                MDIconButton:
+                    icon: "menu"
+                    pos_hint: {"center_x": .05, "top": .97}
+                    style: "tonal"
+                    icon_color: "white"
+                    on_release: nav_drawer.set_state("toggle")
+
+                MDButton:
+                    pos_hint: {"center_x": .85, "center_y": .94}
+                    on_release: app.show_alert_dialog()
+                    MDButtonText:
+                        text: "Exit"
+
+                MDTextField:
+                    id: city_name
+                    mode: "outlined"
+                    size_hint_x: None
+                    width: "300dp"
+                    pos_hint: {"center_x": .4, "center_y": .8}
+                    multiline: False
+
+                    MDTextFieldLeadingIcon:
+                        icon: "magnify"
+
+                    MDTextFieldHintText:
+                        text: "City"
+
+                    MDTextFieldHelperText:
+                        id: hint_button       
+                        text: "اسم شهر را وارد کنید"
+                        mode: "persistent"
+                        font_size:"30sp"
+                        theme_font_name: "Custom"
+                        font_name: "asset/fonts/BNazanin.ttf"                 
+                    
+                    #MDTextFieldTrailingIcon:
+                    #    icon: "magnify"
+
+                    #MDTextFieldMaxLengthText:
+                    #    max_text_length: 10
+
+                MDButton:
+                    pos_hint: {"center_x": .75, "center_y": .8}
+                    on_release: app.search()
+                    MDButtonText:
+                        text: "Search"
+
+                MDCard:   #Cadr search
+                    orientation: "vertical"
+                    padding: 0, 0, 0 , "36dp"
+                    size_hint: .7, .7
+                    style: "elevated"
+                    pos_hint: {"center_x": .5, "center_y": .35}
+
+        
+                    MDScrollView:
+                        id : scroll_view
+                        size_hint_y: None
+                        height: "180dp"
+                        pos_hint: {"center_x": 0.5, "top": .5}
+                        opacity: 0
+                        MDBoxLayout:
+                            id: forecast_container
+                            padding: "10dp"
+                            spacing: "10dp"
+                            size_hint_x: None
+                            width: self.minimum_width
+
+
+                #MDDivider:
+                #    id: divider
+                #    size_hint_x: .5
+                #    size_hint_y: .5
+                #    orientation: "vertical"
+                #    pos_hint: {'center_x': .5, 'center_y': .25}
+                #    opacity: 1
+
+                FitImage:
+                    id: image_pic
+                    source: ""
+                    size_hint_y: .2
+                    size_hint_x: .2
+                    pos_hint: {"center_x": .25,"center_y": .60}
+                    opacity: 0
+
+                
+                MDLabel:
+                    id: city_country
+                    text: ""
+                    pos_hint: {"center_x": .8, "center_y": .62}
+                    padding_x: "18dp"
+                    adaptive_height: True
+                    #font_size: "40sp"
+                    font_style: "Headline"
+                    role: "medium"
+                    opacity: 0
+                    theme_font_name: "Custom"
+                    font_name: "asset/fonts/ARLRDBD.ttf"
+
+                MDLabel:
+                    id: weather
+                    text: ""
+                    pos_hint: {"center_x": .8, "center_y": .58}
+                    padding_x: "18dp"
+                    adaptive_height: True
+                    #font_size: "40sp"
+                    font_style: "Title"
+                    role: "large"
+                    opacity: 0
+                    theme_font_name: "Custom"
+                    font_name: "asset/fonts/ARLRDBD.ttf"
+
+                MDLabel:
+                    id: weather_hint
+                    text: ""
+                    pos_hint: {"center_x": .8, "center_y": .55}
+                    padding_x: "18dp"
+                    adaptive_height: True
+                    #font_size: "40sp"
+                    font_style: "Title"
+                    role: "small"
+                    opacity: 0
+                    theme_font_name: "Custom"
+                    font_name: "asset/fonts/ARLRDBD.ttf"
+
+                MDLabel:
+                    id: temp_f
+                    text: ""
+                    pos_hint: {"center_x": 1, "center_y": .58}
+                    padding_x: "18dp"
+                    adaptive_height: True
+                    #font_size: "40sp"
+                    font_style: "Title"
+                    role: "medium"
+                    opacity: 0
+                    theme_font_name: "Custom"
+                    font_name: "asset/fonts/ARLRDBD.ttf"
+
+                MDLabel:
+                    id: temp_c
+                    text: ""
+                    pos_hint: {"center_x": 1, "center_y": .62}
+                    padding_x: "18dp"
+                    adaptive_height: True
+                    #font_size: "40sp"
+                    font_style: "Headline"
+                    role: "medium"
+                    opacity: 0
+                    theme_font_name: "Custom"
+                    font_name: "asset/fonts/ARLRDBD.ttf"
+
+                MDLabel:
+                    id: humidity
+                    text: ""
+                    pos_hint: {"center_x": 1.15, "center_y": .62}
+                    padding_x: "18dp"
+                    adaptive_height: True
+                    #font_size: "40sp"
+                    font_style: "Title"
+                    role: "medium"
+                    opacity: 0
+                    theme_font_name: "Custom"
+                    font_name: "asset/fonts/ARLRDBD.ttf"
+
+                MDLabel:
+                    id: speed
+                    text: ""
+                    pos_hint: {"center_x": 1.15, "center_y": .58}
+                    padding_x: "18dp"
+                    adaptive_height: True
+                    #font_size: "40sp"
+                    font_style: "Title"
+                    role: "medium"
+                    opacity: 0
+                    theme_font_name: "Custom"
+                    font_name: "asset/fonts/ARLRDBD.ttf"
+
+                MDLabel:
+                    id: error_code_1
+                    halign: "center"
+                    text: ""
+                    pos_hint: {"center_x": .5, "center_y": .55}
+                    padding_x: "18dp"
+                    adaptive_height: True
+                    #font_size: "40sp"
+                    font_style: "Headline"
+                    role: "medium"
+                    opacity: 0
+                    theme_font_name: "Custom"
+                    font_name: "asset/fonts/BNazanin.ttf"
+
+
+                MDLabel:
+                    id: error_code_2
+                    halign: "center"
+                    text: ""
+                    pos_hint: {"center_x": .5, "center_y": .55}
+                    padding_x: "18dp"
+                    adaptive_height: True
+                    #font_size: "40sp"
+                    font_style: "Headline"
+                    role: "medium"
+                    opacity: 0
+                    theme_font_name: "Custom"
+                    font_name: "asset/fonts/BNazanin.ttf"
+                MDLabel:
+                    id: error_code_3
+                    halign: "center"
+                    text: ""
+                    pos_hint: {"center_x": .5, "center_y": .55}
+                    padding_x: "18dp"
+                    adaptive_height: True
+                    #font_size: "40sp"
+                    font_style: "Headline"
+                    role: "medium"
+                    opacity: 0
+                    theme_font_name: "Custom"
+                    font_name: "asset/fonts/BNazanin.ttf"
+
+                MDLabel:
+                    id: pishbini
+                    halign: "center"
+                    text: ""
+                    pos_hint: {"center_x": .63, "center_y": .43}
+                    padding_x: "18dp"
+                    adaptive_height: True
+                    #font_size: "40sp"
+                    font_style: "Headline"
+                    role: "medium"
+                    opacity: 0
+                    theme_font_name: "Custom"
+                    font_name: "asset/fonts/BNazanin.ttf"
+
+        MDNavigationDrawer:
+            id: nav_drawer
+            radius: 0, dp(16), dp(16), 0
+
+            MDNavigationDrawerMenu:
+
+                MDNavigationDrawerHeader:
+                    orientation: "vertical"
+                    padding: 0, 0, 0, "12dp"
+                    adaptive_height: True
+
+                    MDLabel:
+                        id:dasboard
+                        text: ""
+                        mode: "persistent"
+                        font_size:"30sp"
+                        theme_font_name: "Custom"
+                        font_name: "asset/fonts/BNazanin.ttf"       
+                        text: "Header title"
+                        #theme_text_color: "Custom"
+                        theme_line_height: "Custom"
+                        line_height: 0
+                        #text_color: "#4a4939"
+                        adaptive_height: True
+                        padding_x: "16dp"
+                        font_style: "Display"
+                        role: "small"
+
+                    MDLabel:
+                        text: "Dashboard"
+                        padding_x: "18dp"
+                        adaptive_height: True
+                        font_style: "Title"
+                        role: "small"
+                        theme_text_color: "Custom"
+                        text_color: "#4a4939"
+
+                MDNavigationDrawerDivider:
+                MDBoxLayout:
+                    orientation: "horizontal"
+                    spacing: "5dp"
+                    size_hint_y: None
+                    height: "50dp"
+                    pos_hint: {"center_x": 0.6, "top": 1}
+
+                    MDLabel:
+                        text: "{}".format(app.theme_cls.theme_style)
+                        halign: "center"
+                        valign: "center"
+                        bold: True
+                        font_style: "Headline"
+                        role: "small"
+                        size_hint_x: None
+                        width: "90dp"
+
+                    MDButton:
+                        pos_hint: {"center_x": .5,"center_y": .5}
+                        on_release: app.switch_theme_style()
+                        MDButtonText:
+                            text: "Change theme"
+
+                DrawerItem:
+                    icon: "language-python"
+                    text: "Python"
+                    trailing_text: "3.12.5"
+                    trailing_text_color: "#4a4939"
+                    on_release: app.open_link("https://www.python.org/downloads/release/python-3125/")
+
+                DrawerItem:
+                    icon: "alpha-k-circle-outline"
+                    text: "Kivy"
+                    trailing_text: "Master"
+                    trailing_text_color: "#4a4939"
+                    on_release: app.open_link("https://kivy.org/doc/master/gettingstarted/intro.html")
+
+                DrawerItem:
+                    icon: "material-design"
+                    text: "KivyMD"
+                    trailing_text: "Master"
+                    trailing_text_color: "#4a4939"
+                    on_release: app.open_link("https://github.com/kivymd/KivyMD/tree/master")
+
+                DrawerItem:
+                    icon: "git"
+                    text: "GitHub"
+                    trailing_text: ":))"
+                    trailing_text_color: "#4a4939"
+                    on_release: app.open_link("https://github.com/mralikazemi/weather-app")
+                DrawerItem:
+                    icon: "email"
+                    text: "Contact US"
+                    on_release: app.contact_us()
+
+                MDNavigationDrawerDivider:
+
+                #MDNavigationDrawerLabel:
+                #    text: "Labels"
+                #    padding_y: "12dp"
+
+
+                
+                MDSmartTile:
+                    pos_hint: {"center_x": .5, "center_y": .3}
+                    size_hint: None, None
+                    size: "260dp", "320dp"
+                    overlap: True
+
+                    MDSmartTileImage:
+                        source: "asset/weather.jpg"
+                        radius: [dp(24), dp(24),dp(24), dp(24)]
+
+                    MDSmartTileOverlayContainer:
+                        md_bg_color: 0, 0, 0, .6
+                        adaptive_height: True
+                        padding: "8dp"
+                        spacing: "8dp"
+                        radius: [0, 0, dp(24), dp(24)]
+
+                        MDIconButton:
+                            icon: "information-outline"
+                            theme_icon_color: "Custom"
+                            icon_color: 1, 1, 1, 1
+                            pos_hint: {"center_y": .5}
+                            on_release:
+                                self.icon = "information" \
+                                if self.icon == "information-outline" else \
+                                "information-outline"
+
+                        MDLabel:
+                            text: "Version 1.1.0"
+                            theme_text_color: "Custom"
+                            text_color: "white"
