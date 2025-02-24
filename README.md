@@ -17,3 +17,10 @@ To install the required dependencies, use the following command:
 ```bash
 pip install -r requirements.txt
 ```
+run main.py
+
+```bash
+python main.py
+```
+
+GoodLuck
