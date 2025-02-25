@@ -13,6 +13,11 @@ A SIMPLE WEATHER APP WITH KIVY
 
 ## Installation:
 To install the required dependencies, use the following command:
+first install kivymd master version
+```bash
+pip install https://github.com/kivymd/KivyMD/archive/master.zip
+```
+then:
 
 ```bash
 pip install -r requirements.txt
