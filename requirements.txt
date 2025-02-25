@@ -20,7 +20,6 @@ kivy-deps.angle==0.4.0
 kivy-deps.glew==0.3.1
 Kivy-Garden==0.1.5
 kivy_deps.sdl2==0.8.0
-kivymd @ https://github.com/kivymd/KivyMD/archive/master.zip#sha256=ab18d4cc36e2d53ea87f463d01299c39c75bae66cc1950f9bc6397f23317c848
 materialyoucolor==2.0.10
 pillow==11.1.0
 Pygments==2.19.1
