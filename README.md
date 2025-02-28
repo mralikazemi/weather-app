@@ -12,6 +12,15 @@ A SIMPLE WEATHER APP WITH KIVY
 
 
 ## Installation:
+At first create Environment:
+```bash
+python -m venv venv
+```
+then active Environment:
+```bash
+env\Scripts\activate
+```
+
 To install the required dependencies, use the following command:
 first install kivymd master version
 ```bash
