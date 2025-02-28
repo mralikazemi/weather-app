@@ -18,7 +18,7 @@ python -m venv venv
 ```
 then active Environment:
 ```bash
-env\Scripts\activate
+venv\Scripts\activate
 ```
 
 To install the required dependencies, use the following command:
