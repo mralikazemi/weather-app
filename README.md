@@ -6,7 +6,7 @@ A SIMPLE WEATHER APP WITH KIVY
 
 
 ## Requirements:
-- **Python**: 3.12.5
+- **Python**: 3.13.2
 - **Kivy**: Master
 - **Kivymd**: Master
 
