@@ -38,6 +38,7 @@ from kivy.metrics import dp
 
 
 
+
 class DrawerLabel(MDBoxLayout):
     icon = StringProperty()
     text = StringProperty()
@@ -101,6 +102,7 @@ class MYAPLICATION(MDApp):
             MDDialogHeadlineText(
                 text="Are you Sure?",
             ),
+            
             MDDialogSupportingText(
                 text="You Will Close The Application With This Action.",
             ),
