@@ -5,6 +5,14 @@ A SIMPLE WEATHER APP WITH KIVY
 اپلیکشن گرفتن وضعیت آب و هوا با کیوی
 
 
+## 📸 Screenshots
+
+### 🏠 Home Screen
+![Home Screen](asset/home_screen.jpg)
+
+### ⚙️ Dashboars Screen
+![Dashboard Screen](asset/dashboard_screen.jpg)
+
 ## Requirements:
 - **Python**: 3.13.2
 - **Kivy**: 2.3.1
